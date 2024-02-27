@@ -22,6 +22,8 @@ func init() {
 	if err != nil {
 		log.Fatal("error connection db")
 	}
+
+	initializers.ScanApp()
 	// initializers.InsertAMovie(client)
 }
 
