@@ -15,15 +15,16 @@ import (
 func init() {
 	log.Println("Initialize the application !!!!!!!!")
 	initializers.LoadEnvVars()
-	client, err := initializers.ConnectDatabase()
+	_, err := initializers.ConnectDatabase()
 
-	log.Println(client)
+	// log.Println(client)
 
 	if err != nil {
 		log.Fatal("error connection db")
 	}
 
-	initializers.ScanApp()
+	// initializers.ScanApp()
+	initializers.GetIpNPcName()
 	// initializers.InsertAMovie(client)
 }
 
@@ -42,5 +43,5 @@ func main() {
 	r.GET("/jwt", controllers.GenerateJWT)
 	r.GET("/validate", middlewares.RequireAuth, controllers.ValidateUser)
 
-	r.Run()
+	// r.Run()
 }
